@@ -1,12 +1,56 @@
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
+import useFirebase from '../hooks/useFirebase';
 import './common.css';
 
+function MyVerticallyCenteredModal(props) {
+    const { signInUsingGoogle } = useFirebase();
+    const handleGoogleLogin = () => {
+        signInUsingGoogle()
+    }
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    E-Shop
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="text-center">
+                <h4>Login</h4>
+                <Button onClick={handleGoogleLogin} variant="success" className="rounded-pill"><FontAwesomeIcon icon={faGoogle} /> Login with google</Button>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+        </Modal>
+    );
+}
+
 const Shipping = () => {
+    const { logOut, user } = useFirebase();
+    const [modalShow, setModalShow] = React.useState(false);
     return (
         <div>
             <div className="mb-4">
-                <button className="common-btn me-2">LOG IN</button>
+                {
+                    !user.displayName ?
+                        <>
+                            <button className="common-btn me-2" onClick={() => setModalShow(true)}>LOG IN</button>
+                            <MyVerticallyCenteredModal
+                                show={modalShow}
+                                onHide={() => setModalShow(false)}
+                            />
+                        </>
+                        :
+                        <button className="common-btn me-2" onClick={logOut}>LOG OUT</button>
+                }
                 <button className="signup-btn">SIGN UP</button>
             </div>
             <div>
