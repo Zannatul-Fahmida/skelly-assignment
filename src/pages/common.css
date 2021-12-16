@@ -1,0 +1,29 @@
+.common-btn{
+    background-color: #5cbf8f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 35px;
+}
+.signup-btn{
+    background-color: white;
+    border: 2px solid rgb(216, 216, 216);
+    border-radius: 25px;
+    padding: 11px 35px;
+}
+.cost-btn{
+    border: none;
+    border-radius: 25px;
+    padding: 10px 35px;
+}
+.shopping-btn{
+    border: 2px solid grey;
+    background-color: white;
+    color: grey;
+    border-radius: 25px;
+    padding: 10px 35px;
+}
+.divider {
+    width: 70px;
+    border-bottom: 2px solid rgb(238, 236, 236);
+}
