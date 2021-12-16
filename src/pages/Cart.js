@@ -65,10 +65,10 @@ const Cart = () => {
                 </Col>
             </Row>
             <div className="d-flex align-items-center justify-content-between mt-5">
-                <div className="d-flex align-items-center">
+                <button className="d-flex align-items-center bg-white border-0">
                     <FontAwesomeIcon icon={faArrowLeft} />
                     <p className="mb-0 ms-3">Back</p>
-                </div>
+                </button>
                 <div>
                     <button className="shopping-btn me-3">CONTINUE SHOPPING</button>
                     <button className="common-btn" onClick={paymentHandler}>PROCEED TO PAYMENT</button>

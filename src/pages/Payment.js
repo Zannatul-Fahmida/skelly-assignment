@@ -18,21 +18,21 @@ const Payment = () => {
                 <p>Payment method</p>
                 <Row>
                     <Col xs={4}>
-                        <button className="w-100 bg-white border rounded-pill d-flex align-items-center justify-content-center p-2">
+                        <button className="w-100 bg-white rounded-pill d-flex align-items-center justify-content-center p-2 payment-btn">
                             <div className="m-2">
                                 <img src={img1} height="30px" width="100%" alt="" />
                             </div>
                         </button>
                     </Col>
                     <Col xs={4}>
-                        <button className="w-100 bg-white border rounded-pill d-flex align-items-center justify-content-center p-2">
+                        <button className="w-100 bg-white rounded-pill d-flex align-items-center justify-content-center p-2 payment-btn">
                             <div className="m-2">
                                 <img src={img3} height="30px" width="100%" alt="" />
                             </div>
                         </button>
                     </Col>
                     <Col xs={4}>
-                        <button className="w-100 bg-white border rounded-pill d-flex align-items-center justify-content-center p-2">
+                        <button className="w-100 bg-white rounded-pill d-flex align-items-center justify-content-center p-2 payment-btn">
                             <div className="m-2">
                                 <img src={img2} height="30px" width="100%" alt="" />
                             </div>
@@ -41,21 +41,21 @@ const Payment = () => {
                 </Row>
                 <Row className="mt-3">
                     <Col xs={4}>
-                        <button className="w-100 bg-white border rounded-pill d-flex align-items-center justify-content-center p-2">
+                        <button className="w-100 bg-white rounded-pill d-flex align-items-center justify-content-center p-2 payment-btn">
                             <div className="m-2">
                                 <img src={img4} height="30px" width="100%" alt="" />
                             </div>
                         </button>
                     </Col>
                     <Col xs={4}>
-                        <button className="w-100 bg-white border rounded-pill d-flex align-items-center justify-content-center p-2">
+                        <button className="w-100 bg-white rounded-pill d-flex align-items-center justify-content-center p-2 payment-btn">
                             <div className="m-2">
                                 <img src={img5} height="30px" width="100%" alt="" />
                             </div>
                         </button>
                     </Col>
                     <Col xs={4}>
-                        <button className="w-100 bg-white border rounded-pill d-flex align-items-center justify-content-center p-2">
+                        <button className="w-100 bg-white rounded-pill d-flex align-items-center justify-content-center p-2 payment-btn">
                             <div className="m-2">
                                 <img src={img6} height="30px" width="100%" alt="" />
                             </div>
