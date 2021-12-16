@@ -5,8 +5,38 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Payment from './Payment';
 import Shipping from './Shipping';
 import YourCart from './YourCart';
+import Axios from "axios";
 
 const Cart = () => {
+    const paymentHandler = async (e) => {
+        const API_URL = "http://localhost:8000/";
+        e.preventDefault();
+        const orderUrl = `${API_URL}order`;
+        const response = await Axios.get(orderUrl);
+        const { data } = response;
+        const options = {
+          key: process.env.RAZOR_PAY_TEST_KEY,
+          name: "E-shop",
+          description: "Payment",
+          order_id: data.id,
+          handler: async (response) => {
+            try {
+              const paymentId = response.razorpay_payment_id;
+              const url = `${API_URL}capture/${paymentId}`;
+              const captureResponse = await Axios.post(url, {});
+              console.log(captureResponse.data);
+            } catch (err) {
+              console.log(err);
+            }
+          },
+          theme: {
+            color: "#686CFD",
+          },
+        };
+        const rzp1 = new window.Razorpay(options);
+        rzp1.open();
+      };
+
     return (
         <Container>
             <div className="d-flex align-items-center justify-content-between">
@@ -41,7 +71,7 @@ const Cart = () => {
                 </div>
                 <div>
                     <button className="shopping-btn me-3">CONTINUE SHOPPING</button>
-                    <button className="common-btn">PROCEED TO PAYMENT</button>
+                    <button className="common-btn" onClick={paymentHandler}>PROCEED TO PAYMENT</button>
                 </div>
             </div>
         </Container>
